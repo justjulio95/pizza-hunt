@@ -5,11 +5,15 @@ const PizzaSchema = new Schema(
   {
     // name of pizza
     pizzaName: {
-      type: String
+      type: String,
+      required: true,
+      trim: true
     },
     // name of user that created the pizza
     createdBy: {
-      type: String
+      type: String,
+      required: true,
+      trim: true
     },
     // timestamp of when pizza was created
     createdAt: {
@@ -20,6 +24,8 @@ const PizzaSchema = new Schema(
     // pizza suggested size
     size: {
       type: String,
+      required: true,
+      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
       default: 'Large'
     },
     // pizza toppings
